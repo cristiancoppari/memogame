@@ -1,0 +1,23 @@
+.container {
+    @apply mx-auto flex w-full flex-col items-center justify-center gap-4 p-4;
+
+    @media screen(md) {
+        @apply flex-row;
+    }
+
+    & > :first-child {
+        @apply flex-shrink flex-grow basis-full;
+
+        @media screen(md) {
+            @apply basis-1/3;
+        }
+    }
+
+    & > :last-child {
+        @apply flex-shrink flex-grow basis-full;
+
+        @media screen(md) {
+            @apply basis-2/3;
+        }
+    }
+}

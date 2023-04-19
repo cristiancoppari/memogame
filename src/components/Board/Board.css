@@ -1,0 +1,19 @@
+.board {
+    &__score {
+        @apply mb-6 flex items-center justify-evenly;
+
+        &--points,
+        &--errors {
+            @apply flex gap-1;
+
+            h4 {
+                @apply font-bold;
+            }
+        }
+    }
+
+    &__cards {
+        @apply mx-auto grid grid-cols-4 grid-rows-4 justify-center gap-4;
+        @apply w-full md:w-max;
+    }
+}

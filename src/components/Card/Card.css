@@ -1,0 +1,47 @@
+.card {
+    @apply cursor-pointer;
+    /* css for flipping the card */
+    perspective: 50rem;
+
+    &:hover {
+        /* @apply shadow-2xl; */
+        transform: scale(1.01);
+
+        .card__content {
+            transform: rotateY(180deg);
+            transition: transform 0.5s;
+        }
+    }
+
+    &__content {
+        @apply relative h-28 w-20 md:h-40 md:w-28;
+        @apply rounded-md border-2 border-gray-800;
+        @apply shadow-lg shadow-gray-300;
+        @apply transition-all duration-300;
+
+        transition: transform 1s;
+        transform-style: preserve-3d;
+    }
+
+    &__front,
+    &__back {
+        @apply h-full;
+
+        backface-visibility: hidden;
+    }
+
+    &__front {
+        @apply bg-blue-400;
+    }
+
+    &__back {
+        @apply absolute left-0 top-0 w-full;
+        @apply bg-blue-200 opacity-50;
+
+        transform: rotateY(180deg);
+    }
+
+    img {
+        @apply block h-full w-full;
+    }
+}
