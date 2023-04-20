@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 h1 {
-    @apply mb-2 text-3xl font-bold text-gray-900;
+    @apply text-3xl font-bold text-gray-900;
 }
 
 h2 {
-    @apply mb-2 text-2xl font-semibold text-gray-900;
+    @apply text-2xl font-semibold text-gray-900;
 }
 
 :where(p, li) {
@@ -16,4 +16,9 @@ h2 {
 
 li {
     @apply ml-8 list-outside list-disc;
+}
+
+button,
+[type="button"] {
+    @apply bg-inherit;
 }

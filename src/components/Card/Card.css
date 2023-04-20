@@ -31,7 +31,7 @@
     }
 
     &__front {
-        @apply bg-blue-400;
+        @apply bg-indigo-400;
     }
 
     &__back {

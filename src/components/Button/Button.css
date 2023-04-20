@@ -1,0 +1,13 @@
+.btn {
+    @apply relative mx-auto block rounded-md px-8 py-2.5;
+    @apply text-sm font-semibold text-white;
+    @apply shadow-sm;
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
+    @apply transition-all duration-200 ease-in-out;
+
+    &-primary {
+        /* Need important here because of tailwindcss selector specificity */
+        @apply bg-indigo-700 hover:bg-indigo-600 !important;
+        @apply focus-visible:outline-indigo-600;
+    }
+}

@@ -1,3 +1,4 @@
+import Button from "../Button/Button";
 import "./GameInfo.css";
 
 const GameInfo = (): JSX.Element => {
@@ -14,11 +15,24 @@ const GameInfo = (): JSX.Element => {
 
             <h2>Instructions:</h2>
 
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed,
+                vitae.
+            </p>
+
             <ul>
                 {instructions.map((instruction, index) => (
                     <li key={index}>{instruction}</li>
                 ))}
             </ul>
+
+            <Button
+                text={"Start"}
+                type={"primary"}
+                onClick={() => {
+                    console.log("clicked");
+                }}
+            />
         </div>
     );
 };
