@@ -1,7 +1,7 @@
-import type { ReactNode } from "react";
+import type { TChildren } from "../../types/types";
 import "./Container.css";
 
-const Container = ({ children }: { children: ReactNode }): JSX.Element => {
+const Container = ({ children }: TChildren): JSX.Element => {
     return <div className="container">{children}</div>;
 };
 

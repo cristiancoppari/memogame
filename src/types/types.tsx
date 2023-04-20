@@ -10,3 +10,7 @@ export type TButton = {
     type: "primary" | "secondary";
     onClick: () => void;
 };
+
+export type TChildren = {
+    children: React.ReactNode;
+};
