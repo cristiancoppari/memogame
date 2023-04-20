@@ -5,10 +5,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface LoginState {
     name: string | undefined;
+    acceptedInstructions: boolean;
 }
 
 const initialState: LoginState = {
     name: "",
+    acceptedInstructions: false,
 };
 
 export const loginSlice = createSlice({
@@ -18,13 +20,18 @@ export const loginSlice = createSlice({
         setName: (state, action: PayloadAction<string>) => {
             state.name = action.payload;
         },
+        setAcceptedInstructions: (state) => {
+            state.acceptedInstructions = true;
+        },
     },
 });
 
-export const { setName } = loginSlice.actions;
+export const { setName, setAcceptedInstructions } = loginSlice.actions;
 
-// Other code such as selectors can use the imported `RootState` type
 export const selectName = (state: RootState): string | undefined =>
     state.login.name;
+
+export const getAcceptedInstructions = (state: RootState): boolean =>
+    state.login.acceptedInstructions;
 
 export default loginSlice.reducer;

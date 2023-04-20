@@ -13,4 +13,5 @@ export type TButton = {
 
 export type TChildren = {
     children: React.ReactNode;
+    className?: string;
 };

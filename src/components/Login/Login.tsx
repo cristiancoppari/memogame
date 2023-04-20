@@ -2,16 +2,19 @@ import { useRef } from "react";
 
 import Box from "../Box/Box";
 import Button from "../Button/Button";
-import { useAppDispatch } from "../../hooks/hooks";
-import { setName } from "../../redux/slices/loginSlice";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { setName, selectName } from "../../redux/slices/loginSlice";
+
+import "./Login.css";
 
 const Login = (): JSX.Element => {
     const dispatch = useAppDispatch();
+    const name = useAppSelector(selectName);
 
     const nameRef = useRef<HTMLInputElement>(null);
 
     return (
-        <Box>
+        <Box className={`login ${name ? "hidden" : ""}`}>
             <h1>
                 Welcome to <br /> Memo Game 🔮
             </h1>
