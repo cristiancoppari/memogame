@@ -1,7 +1,13 @@
 import type { TCard } from "../../types/types";
 import "./Card.css";
 
-const Card = ({ id, image, isMatched, isSelected }: TCard): JSX.Element => {
+const Card = ({
+    id,
+    name,
+    image,
+    isMatched,
+    isSelected,
+}: TCard): JSX.Element => {
     return (
         <div
             className="card"
@@ -15,7 +21,7 @@ const Card = ({ id, image, isMatched, isSelected }: TCard): JSX.Element => {
                 </div>
 
                 <div className="card__back">
-                    <span>Back</span>
+                    <img src={image} alt={name} />
                 </div>
             </div>
         </div>

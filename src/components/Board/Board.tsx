@@ -1,109 +1,11 @@
 import Card from "../Card/Card";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { getAcceptedInstructions } from "../../redux/slices/loginSlice";
-import { getPoints, getErrors } from "../../redux/slices/gameSlice";
+import { getPoints, getErrors, getCards } from "../../redux/slices/gameSlice";
 import "./Board.css";
 
-const dummyCards = [
-    {
-        id: 1,
-        image: "https://picsum.photos/200/300",
-        isSelected: false,
-        isMatched: false,
-    },
-    {
-        id: 2,
-        image: "https://picsum.photos/200/300",
-        isSelected: false,
-        isMatched: false,
-    },
-    {
-        id: 3,
-        image: "https://picsum.photos/200/300",
-        isSelected: false,
-        isMatched: false,
-    },
-    {
-        id: 4,
-        image: "https://picsum.photos/200/300",
-        isSelected: false,
-        isMatched: false,
-    },
-    {
-        id: 5,
-        image: "https://picsum.photos/200/300",
-        isSelected: false,
-        isMatched: false,
-    },
-    {
-        id: 6,
-        image: "https://picsum.photos/200/300",
-        isSelected: false,
-        isMatched: false,
-    },
-    {
-        id: 7,
-        image: "https://picsum.photos/200/300",
-        isSelected: false,
-        isMatched: false,
-    },
-    {
-        id: 8,
-        image: "https://picsum.photos/200/300",
-        isSelected: false,
-        isMatched: false,
-    },
-    {
-        id: 9,
-        image: "https://picsum.photos/200/300",
-        isSelected: false,
-        isMatched: false,
-    },
-    {
-        id: 10,
-        image: "https://picsum.photos/200/300",
-        isSelected: false,
-        isMatched: false,
-    },
-    {
-        id: 11,
-        image: "https://picsum.photos/200/300",
-        isSelected: false,
-        isMatched: false,
-    },
-    {
-        id: 12,
-        image: "https://picsum.photos/200/300",
-        isSelected: false,
-        isMatched: false,
-    },
-    {
-        id: 13,
-        image: "https://picsum.photos/200/300",
-        isSelected: false,
-        isMatched: false,
-    },
-    {
-        id: 14,
-        image: "https://picsum.photos/200/300",
-        isSelected: false,
-        isMatched: false,
-    },
-    {
-        id: 15,
-        image: "https://picsum.photos/200/300",
-        isSelected: false,
-        isMatched: false,
-    },
-    {
-        id: 16,
-        image: "https://picsum.photos/200/300",
-        isSelected: false,
-        isMatched: false,
-    },
-];
-
 const Board = (): JSX.Element => {
+    const cards = useAppSelector(getCards);
     const acceptedInstructions = useAppSelector(getAcceptedInstructions);
     const points = useAppSelector(getPoints);
     const errors = useAppSelector(getErrors);
@@ -123,7 +25,7 @@ const Board = (): JSX.Element => {
             </section>
 
             <section className="board__cards">
-                {dummyCards.map((card) => (
+                {cards.map((card) => (
                     <Card key={card.id} {...card} />
                 ))}
             </section>

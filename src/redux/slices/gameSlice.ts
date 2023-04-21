@@ -1,18 +1,11 @@
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store/store";
+import type { TCard } from "../../types/types";
 
 import { createSlice } from "@reduxjs/toolkit";
 
-type Card = {
-    id: string;
-    name: string;
-    image: string;
-    flipped: boolean;
-    matched: boolean;
-};
-
 type GameState = {
-    cards: Card[];
+    cards: TCard[];
     points: number;
     errors: number;
     firstSelection: number | null;
@@ -57,12 +50,17 @@ export const gameSlice = createSlice({
         setInitialState: (state) => {
             // set the initial state
         },
+        setCards: (state, action: PayloadAction<TCard[]>) => {
+            // set the cards
+            state.cards = action.payload;
+        },
     },
 });
 
-export const { addPoint, addError } = gameSlice.actions;
+export const { addPoint, addError, setCards } = gameSlice.actions;
 
 export const getPoints = (state: RootState): number => state.game.points;
 export const getErrors = (state: RootState): number => state.game.errors;
+export const getCards = (state: RootState): TCard[] => state.game.cards;
 
 export default gameSlice.reducer;

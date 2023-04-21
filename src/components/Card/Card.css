@@ -36,7 +36,10 @@
 
     &__back {
         @apply absolute left-0 top-0 w-full;
-        @apply bg-blue-200 opacity-50;
+
+        img {
+            @apply object-cover object-center;
+        }
 
         transform: rotateY(180deg);
     }
