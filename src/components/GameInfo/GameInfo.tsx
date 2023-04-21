@@ -5,6 +5,7 @@ import {
     setAcceptedInstructions,
     selectName,
 } from "../../redux/slices/loginSlice";
+
 import "./GameInfo.css";
 
 const instructions: string[] = [
@@ -16,6 +17,7 @@ const instructions: string[] = [
 
 const GameInfo = (): JSX.Element => {
     const dispatch = useAppDispatch();
+
     const name = useAppSelector(selectName);
     const acceptedInstructions = useAppSelector(getAcceptedInstructions);
 
