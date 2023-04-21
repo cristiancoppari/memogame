@@ -1,20 +1,31 @@
-import { Provider } from "react-redux";
+import { BarLoader } from "react-spinners";
 
 import GameInfo from "./components/GameInfo/GameInfo";
 import Container from "./components/Container/Container";
 import Board from "./components/Board/Board";
 import Login from "./components/Login/Login";
-import { store } from "./redux/store/store";
+import { useGetImagesQuery } from "./redux/api/api";
 
 function App(): JSX.Element {
+    const { isLoading, isSuccess, isError } = useGetImagesQuery({});
+
     return (
-        <Provider store={store}>
-            <Container>
-                <Login />
-                <GameInfo />
-                <Board />
-            </Container>
-        </Provider>
+        <Container>
+            {isLoading && <p>Loading game...</p>}
+            {isSuccess && (
+                <>
+                    <Login />
+                    <GameInfo />
+                    <Board />
+                </>
+            )}
+            {isError && (
+                <div>
+                    An error ocurred while loading the game. Please try again
+                    later!
+                </div>
+            )}
+        </Container>
     );
 }
 

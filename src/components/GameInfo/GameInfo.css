@@ -8,10 +8,18 @@
     h1 {
         @apply text-3xl;
         @apply mb-4;
+
+        span {
+            @apply capitalize;
+        }
     }
 
     .subtitle {
         @apply mb-2 font-semibold;
+
+        &:last-of-type {
+            @apply mb-8;
+        }
     }
 
     ul {
