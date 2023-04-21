@@ -15,3 +15,7 @@ export type TChildren = {
     children: React.ReactNode;
     className?: string;
 };
+
+export type AxiosQueryResult<T> =
+    | { data: T }
+    | { error: { status?: number; data: string | object } };
