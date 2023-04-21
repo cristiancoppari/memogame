@@ -1,19 +1,21 @@
 .game-info {
-    @apply mb-6;
-    @apply self-start;
+    @apply mb-6 max-w-xl;
+
+    :where(h1, p) {
+        @apply text-center;
+    }
 
     h1 {
         @apply text-3xl;
         @apply mb-4;
     }
 
-    h2 {
-        @apply text-2xl;
-        @apply mb-4;
+    .subtitle {
+        @apply mb-2 font-semibold;
     }
 
     ul {
-        @apply mb-8;
+        @apply mb-8 mt-4;
 
         li {
             @apply mb-4;

@@ -1,4 +1,6 @@
 import Card from "../Card/Card";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { getAcceptedInstructions } from "../../redux/slices/loginSlice";
 import "./Board.css";
 
 const dummyCards = [
@@ -101,8 +103,10 @@ const dummyCards = [
 ];
 
 const Board = (): JSX.Element => {
+    const acceptedInstructions = useAppSelector(getAcceptedInstructions);
+
     return (
-        <main className="board">
+        <main className={`board ${!acceptedInstructions ? "hidden" : ""}`}>
             <section className="board__score">
                 <div className="board__score--points">
                     <h4>Points:</h4>
