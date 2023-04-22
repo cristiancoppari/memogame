@@ -2,6 +2,8 @@ import type { AxiosQueryResult, TCard } from "../../types/types";
 import type { BaseQueryFn } from "@reduxjs/toolkit/dist/query";
 import type { AxiosRequestConfig, AxiosError } from "axios";
 
+import { shuffleCards } from "../../helpers/helpers";
+
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { createApi } from "@reduxjs/toolkit/query/react";
@@ -94,7 +96,9 @@ export const api = createApi({
 
                 const cardsDuplicated = [...cards, ...cards];
 
-                const cardsToRender = cardsDuplicated.map((card) => {
+                const cardsShuffled = shuffleCards(cardsDuplicated);
+
+                const cardsToRender = cardsShuffled.map((card) => {
                     return {
                         ...card,
                         id: uuidv4(),
