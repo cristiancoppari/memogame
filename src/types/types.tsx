@@ -1,5 +1,6 @@
 export type TCard = {
     id: string;
+    matchId: string;
     image: string;
     name: string;
     isSelected: boolean;

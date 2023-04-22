@@ -8,9 +8,10 @@ type GameState = {
     cards: TCard[];
     points: number;
     errors: number;
-    firstSelection: number | null;
-    secondSelection: number | null;
-    gameCompleted: boolean;
+    firstSelection: string | null | undefined | TCard;
+    secondSelection: string | null | undefined | TCard;
+    isCompleted: boolean;
+    isBlocked: boolean;
 };
 
 const initialState: GameState = {
@@ -19,7 +20,12 @@ const initialState: GameState = {
     errors: 0,
     firstSelection: null,
     secondSelection: null,
-    gameCompleted: false,
+    isCompleted: false,
+    isBlocked: false,
+};
+
+const getCard = (cards: TCard[], id: string): string | undefined => {
+    return cards.find((card) => card.id === id)?.matchId;
 };
 
 export const gameSlice = createSlice({
@@ -32,14 +38,58 @@ export const gameSlice = createSlice({
         addError: (state) => {
             state.errors += 1;
         },
-        flipCard: (state, action: PayloadAction<number>) => {
-            // flip the cards according to the id
+        flipCard: (state, action: PayloadAction<string>) => {
+            // 1) flip the first card
+            if (!state.firstSelection) {
+                // set the matchId to first selection
+                state.firstSelection = getCard(state.cards, action.payload);
+            } else {
+                // 2) flip the second card
+                state.secondSelection = getCard(state.cards, action.payload);
+            }
+
+            // set isFlipped to true in the matching card
+            state.cards = state.cards.map((card) => {
+                if (card.id === action.payload) {
+                    return { ...card, isSelected: true };
+                }
+
+                return card;
+            });
         },
-        unflipCards: (state) => {
+        cardsDoesntMatch: (state) => {
+            state.cards = state.cards.map((card) => {
+                if (
+                    card.matchId === state.firstSelection ||
+                    card.matchId === state.secondSelection
+                ) {
+                    return { ...card, isSelected: false };
+                }
+
+                return card;
+            });
+
             // unflip the cards
+            state.firstSelection = null;
+            state.secondSelection = null;
+            state.errors += 1;
         },
-        checkMatch: (state) => {
-            // check if the cards match
+        cardsMatch: (state) => {
+            state.cards = state.cards.map((card) => {
+                if (
+                    card.matchId === state.firstSelection ||
+                    card.matchId === state.secondSelection
+                ) {
+                    return { ...card, isSelected: false, isMatched: true };
+                }
+
+                return card;
+            });
+
+            // unflip the cards
+            state.firstSelection = null;
+            state.secondSelection = null;
+            state.points += 1;
         },
         shuffleCards: (state) => {
             // shuffle the cards
@@ -50,6 +100,10 @@ export const gameSlice = createSlice({
         setInitialState: (state) => {
             // set the initial state
         },
+        setIsBlocked: (state, action) => {
+            // set the isBlocked state to the action payload
+            state.isBlocked = action.payload;
+        },
         setCards: (state, action: PayloadAction<TCard[]>) => {
             // set the cards
             state.cards = action.payload;
@@ -57,10 +111,25 @@ export const gameSlice = createSlice({
     },
 });
 
-export const { addPoint, addError, setCards } = gameSlice.actions;
+export const {
+    addPoint,
+    addError,
+    setCards,
+    flipCard,
+    cardsDoesntMatch,
+    cardsMatch,
+    setIsBlocked,
+} = gameSlice.actions;
 
 export const getPoints = (state: RootState): number => state.game.points;
 export const getErrors = (state: RootState): number => state.game.errors;
 export const getCards = (state: RootState): TCard[] => state.game.cards;
+export const getFirstSelection = (
+    state: RootState,
+): string | null | undefined | TCard => state.game.firstSelection;
+export const getSecondSelection = (
+    state: RootState,
+): string | null | undefined | TCard => state.game.secondSelection;
+export const getIsBlocked = (state: RootState): boolean => state.game.isBlocked;
 
 export default gameSlice.reducer;

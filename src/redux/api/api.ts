@@ -1,13 +1,12 @@
-import type { AxiosRequestConfig, AxiosError } from "axios";
 import type { AxiosQueryResult, TCard } from "../../types/types";
 import type { BaseQueryFn } from "@reduxjs/toolkit/dist/query";
+import type { AxiosRequestConfig, AxiosError } from "axios";
+
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
+import { createApi } from "@reduxjs/toolkit/query/react";
 
 import { setCards } from "../slices/gameSlice";
-
-import { v4 as uuidv4 } from "uuid";
-
-import { createApi } from "@reduxjs/toolkit/query/react";
-import axios from "axios";
 
 type RImage = {
     uuid: number;
@@ -15,6 +14,7 @@ type RImage = {
         image: {
             title: string;
             url: string;
+            uuid: string;
         };
     };
 };
@@ -79,17 +79,29 @@ export const api = createApi({
             ) => {
                 const response = baseQueryReturnValue;
 
-                const cards = response.entries.map((entry: RImage): TCard => {
+                const cards = response.entries
+                    .map((entry: RImage): TCard => {
+                        return {
+                            id: "",
+                            matchId: entry.fields.image.uuid,
+                            name: entry.fields.image.title,
+                            image: entry.fields.image.url,
+                            isSelected: false,
+                            isMatched: false,
+                        };
+                    })
+                    .slice(0, 6);
+
+                const cardsDuplicated = [...cards, ...cards];
+
+                const cardsToRender = cardsDuplicated.map((card) => {
                     return {
+                        ...card,
                         id: uuidv4(),
-                        name: entry.fields.image.title,
-                        image: entry.fields.image.url,
-                        isSelected: false,
-                        isMatched: false,
                     };
                 });
 
-                return cards.slice(0, 12);
+                return cardsToRender;
             },
             onQueryStarted: async (arg, { dispatch, queryFulfilled }) => {
                 const { data } = await queryFulfilled;

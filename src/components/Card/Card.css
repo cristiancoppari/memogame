@@ -6,21 +6,21 @@
     &:hover {
         /* @apply shadow-2xl; */
         transform: scale(1.01);
-
-        .card__content {
-            transform: rotateY(180deg);
-            transition: transform 0.5s;
-        }
+        transition: transform 0.5s;
     }
 
     &__content {
         @apply relative h-28 w-20 md:h-40 md:w-28;
-        @apply rounded-md border-2 border-gray-800;
         @apply shadow-lg shadow-gray-300;
         @apply transition-all duration-300;
 
         transition: transform 1s;
         transform-style: preserve-3d;
+
+        &.--active {
+            transform: rotateY(180deg);
+            transition: transform 0.5s;
+        }
     }
 
     &__front,
@@ -32,6 +32,8 @@
 
     &__front {
         @apply bg-indigo-400;
+
+        @apply rounded-md border-2 border-gray-800;
     }
 
     &__back {
@@ -39,6 +41,8 @@
 
         img {
             @apply object-cover object-center;
+
+            @apply rounded-md border-2 border-gray-800;
         }
 
         transform: rotateY(180deg);
