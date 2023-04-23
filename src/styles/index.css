@@ -4,7 +4,7 @@
 
 @layer base {
     * {
-        @apply transition-all duration-200 ease-in-out;
+        @apply transition-colors duration-200 ease-in-out;
     }
 
     main {

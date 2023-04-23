@@ -17,13 +17,13 @@ function App(): JSX.Element {
 
     return (
         <Container>
+            <Header />
             {/* Loading */}
             {isLoading && <p>Loading game...</p>}
 
             {/* Images loaded successfully and the game is not completed */}
             {isSuccess && !isCompleted && (
                 <>
-                    <Header />
                     {/* Here I check for the name, if I have a name the user its logged in */}
                     {!name && <Login />}
                     {name && (

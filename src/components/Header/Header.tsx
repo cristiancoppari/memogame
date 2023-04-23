@@ -6,7 +6,7 @@ import "./Header.css";
 const Header = (): JSX.Element => {
     const [darkMode, setDarkMode] = useDarkMode();
 
-    const btnContent = darkMode ? "Dark mode:" : "Light mode";
+    const btnContent = darkMode ? "Dark mode" : "Light mode";
 
     return (
         <header className="header">
