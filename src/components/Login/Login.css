@@ -1,6 +1,10 @@
 .login {
     @apply w-full max-w-sm;
 
+    label {
+        @apply mb-4 block text-sm font-medium text-gray-700;
+    }
+
     input {
         @apply px-1.5;
         @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;

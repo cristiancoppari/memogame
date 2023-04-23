@@ -19,9 +19,8 @@ const Login = (): JSX.Element => {
                 Welcome to <br /> Memo Game 🔮
             </h1>
 
-            <p>Enter your name to start:</p>
-
-            <input type="text" ref={nameRef} />
+            <label htmlFor={"userName"}>Enter your name to start:</label>
+            <input type="text" ref={nameRef} id="userName" />
 
             <Button
                 text={"Continue"}
