@@ -27,7 +27,9 @@ const Login = (): JSX.Element => {
                 text={"Continue"}
                 type={"primary"}
                 onClick={() => {
-                    dispatch(setName(nameRef.current?.value ?? ""));
+                    if (nameRef.current?.value.trim()) {
+                        dispatch(setName(nameRef.current?.value ?? ""));
+                    }
                 }}
             />
         </Box>
