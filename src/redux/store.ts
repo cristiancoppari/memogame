@@ -1,17 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import { api } from "../api/api";
-import userReducer from "../slices/userSlice";
-import gameReducer from "../slices/gameSlice";
+import { api } from "./slices/api";
+import userReducer from "./slices/userSlice";
+import gameReducer from "./slices/gameSlice";
+import { localStorageMiddleware } from "./middlewares/localStorage";
 
 export const store = configureStore({
     reducer: {
         [api.reducerPath]: api.reducer,
-        login: userReducer,
+        user: userReducer,
         game: gameReducer,
     },
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(api.middleware),
+        getDefaultMiddleware().concat(api.middleware, localStorageMiddleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

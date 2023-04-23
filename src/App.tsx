@@ -2,7 +2,7 @@ import GameInfo from "./components/GameInfo/GameInfo";
 import Container from "./components/Container/Container";
 import Board from "./components/Board/Board";
 import Login from "./components/Login/Login";
-import { useGetImagesQuery } from "./redux/api/api";
+import { useGetImagesQuery } from "./redux/slices/api";
 import { useAppSelector } from "./hooks/hooks";
 import { getIsCompleted } from "./redux/slices/gameSlice";
 import { selectName } from "./redux/slices/userSlice";

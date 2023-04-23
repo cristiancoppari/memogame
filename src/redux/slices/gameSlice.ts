@@ -1,5 +1,5 @@
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../store/store";
+import type { RootState } from "../store";
 import type { TCard } from "../../types/types";
 
 import { v4 as uuidv4 } from "uuid";
@@ -21,18 +21,21 @@ type GameState = {
     isBlocked: boolean;
 };
 
+const storedGameData = localStorage.getItem("gameData");
+const parsedGameData = storedGameData ? JSON.parse(storedGameData) : null;
+
 const initialState: GameState = {
-    cachedCards: [],
-    cards: [],
+    cachedCards: parsedGameData?.cachedCards || [],
+    cards: parsedGameData?.cards || [],
 
-    points: 0,
-    errors: 0,
+    points: parsedGameData?.points || 0,
+    errors: parsedGameData?.errors || 0,
 
-    firstSelection: null,
-    secondSelection: null,
+    firstSelection: parsedGameData?.firstSelection || null,
+    secondSelection: parsedGameData?.secondSelection || null,
 
-    isCompleted: false,
-    isBlocked: false,
+    isCompleted: parsedGameData?.isCompleted || false,
+    isBlocked: parsedGameData?.isBlocked || false,
 };
 
 export const gameSlice = createSlice({
@@ -111,8 +114,8 @@ export const gameSlice = createSlice({
         resetGameState: (state) => {
             // set the initial state
             state.cards = initialState.cards;
-            state.points = initialState.points;
-            state.errors = initialState.errors;
+            state.points = 0;
+            state.errors = 0;
             state.firstSelection = initialState.firstSelection;
             state.secondSelection = initialState.secondSelection;
             state.isCompleted = initialState.isCompleted;

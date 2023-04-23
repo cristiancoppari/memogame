@@ -5,7 +5,7 @@ import type { AxiosRequestConfig, AxiosError } from "axios";
 import axios from "axios";
 import { createApi } from "@reduxjs/toolkit/query/react";
 
-import { setCards } from "../slices/gameSlice";
+import { setCards } from "./gameSlice";
 
 type RImage = {
     uuid: number;

@@ -1,16 +1,19 @@
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../store/store";
+import type { RootState } from "../store";
 
 import { createSlice } from "@reduxjs/toolkit";
 
-interface LoginState {
+interface UserState {
     name: string | undefined;
     acceptedInstructions: boolean;
 }
 
-const initialState: LoginState = {
-    name: "",
-    acceptedInstructions: false,
+const storedUserData = localStorage.getItem("userData");
+const parsedUserData = storedUserData ? JSON.parse(storedUserData) : null;
+
+const initialState: UserState = {
+    name: parsedUserData?.name || "",
+    acceptedInstructions: parsedUserData?.acceptedInstructions || false,
 };
 
 export const userSlice = createSlice({
@@ -33,9 +36,9 @@ export const { setName, setAcceptedInstructions, resetLogin } =
     userSlice.actions;
 
 export const selectName = (state: RootState): string | undefined =>
-    state.login.name;
+    state.user.name;
 
 export const getAcceptedInstructions = (state: RootState): boolean =>
-    state.login.acceptedInstructions;
+    state.user.acceptedInstructions;
 
 export default userSlice.reducer;
