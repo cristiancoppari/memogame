@@ -1,5 +1,5 @@
 .game-info {
-    @apply mb-6 max-w-xl;
+    @apply max-w-xl;
 
     :where(h1, p) {
         @apply text-center;
@@ -18,15 +18,15 @@
         @apply mb-2 font-semibold;
 
         &:last-of-type {
-            @apply mb-8;
+            @apply mb-4;
         }
     }
 
     ul {
-        @apply mb-8 mt-4;
+        @apply mb-4 mt-4;
 
         li {
-            @apply mb-4;
+            @apply mb-2;
             @apply text-sm;
         }
     }

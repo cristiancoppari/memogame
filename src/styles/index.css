@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+main {
+    @apply pt-8;
+}
+
 h1 {
     @apply text-2xl font-bold text-gray-900;
 }

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
 import Card from "../Card/Card";
+import Button from "../Button/Button";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { getAcceptedInstructions } from "../../redux/slices/userSlice";
 import {
@@ -79,6 +80,14 @@ const Board = (): JSX.Element => {
                     <Card key={card.id} {...card} />
                 ))}
             </section>
+
+            <Button
+                text={"New game"}
+                type={"primary"}
+                onClick={() => {
+                    console.log("clicked");
+                }}
+            />
         </main>
     );
 };

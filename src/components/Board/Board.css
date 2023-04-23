@@ -1,4 +1,5 @@
 .board {
+    @apply w-full md:max-w-xl;
     &__score {
         @apply mb-6 flex items-center justify-evenly;
 
@@ -13,7 +14,7 @@
     }
 
     &__cards {
-        @apply mx-auto grid grid-cols-4 grid-rows-4 justify-center gap-4;
-        @apply w-full md:w-max;
+        @apply mx-auto mb-12 grid grid-cols-4 gap-2;
+        @apply w-full;
     }
 }

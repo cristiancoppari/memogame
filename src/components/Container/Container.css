@@ -1,5 +1,5 @@
 .container {
-    @apply mx-auto flex w-full flex-col items-center justify-center gap-12 p-4 md:p-12;
+    @apply mx-auto flex w-full flex-col items-center justify-center gap-12 p-4;
     height: 100dvh;
 
     @media screen(md) {

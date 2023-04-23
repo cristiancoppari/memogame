@@ -1,6 +1,6 @@
 .box {
     @apply rounded-sm text-center shadow-lg shadow-gray-200;
-    @apply p-8;
+    @apply py-8;
 
     h1 {
         @apply mb-4;

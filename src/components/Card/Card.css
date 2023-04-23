@@ -1,5 +1,6 @@
 .card {
     @apply cursor-pointer;
+    @apply h-32 w-full sm:h-36 md:h-48;
     /* css for flipping the card */
     perspective: 50rem;
 
@@ -10,7 +11,7 @@
     }
 
     &__content {
-        @apply relative h-28 w-16 md:h-40 md:w-28;
+        @apply relative h-full;
         @apply shadow-lg shadow-gray-300;
         @apply transition-all duration-300;
 
@@ -25,7 +26,7 @@
 
     &__front,
     &__back {
-        @apply h-full;
+        @apply h-full w-full;
 
         backface-visibility: hidden;
     }
