@@ -4,6 +4,10 @@ export const shuffleCards = (cards: TCard[]): TCard[] => {
     return [...cards].sort(() => Math.random() - 0.5);
 };
 
+export const getCard = (cards: TCard[], id: string): string | undefined => {
+    return cards.find((card) => card.id === id)?.matchId;
+};
+
 export const getRandomCards = (cards: TCard[], amount: number): TCard[] => {
     const randomCards: TCard[] = [];
 

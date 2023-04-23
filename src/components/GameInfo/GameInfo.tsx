@@ -4,7 +4,7 @@ import {
     getAcceptedInstructions,
     setAcceptedInstructions,
     selectName,
-} from "../../redux/slices/loginSlice";
+} from "../../redux/slices/userSlice";
 import { initGame } from "../../redux/slices/gameSlice";
 import "./GameInfo.css";
 

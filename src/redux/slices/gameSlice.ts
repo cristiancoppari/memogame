@@ -5,7 +5,7 @@ import type { TCard } from "../../types/types";
 import { v4 as uuidv4 } from "uuid";
 import { createSlice } from "@reduxjs/toolkit";
 
-import { shuffleCards, getRandomCards } from "../../helpers/helpers";
+import { shuffleCards, getRandomCards, getCard } from "../../helpers/helpers";
 
 type GameState = {
     cachedCards: TCard[];
@@ -33,10 +33,6 @@ const initialState: GameState = {
 
     isCompleted: false,
     isBlocked: false,
-};
-
-const getCard = (cards: TCard[], id: string): string | undefined => {
-    return cards.find((card) => card.id === id)?.matchId;
 };
 
 export const gameSlice = createSlice({

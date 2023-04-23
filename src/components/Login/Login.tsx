@@ -3,7 +3,7 @@ import { useRef } from "react";
 import Box from "../Box/Box";
 import Button from "../Button/Button";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import { setName, selectName } from "../../redux/slices/loginSlice";
+import { setName, selectName } from "../../redux/slices/userSlice";
 
 import "./Login.css";
 

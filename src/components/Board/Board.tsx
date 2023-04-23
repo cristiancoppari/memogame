@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import Card from "../Card/Card";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import { getAcceptedInstructions } from "../../redux/slices/loginSlice";
+import { getAcceptedInstructions } from "../../redux/slices/userSlice";
 import {
     getPoints,
     getErrors,

@@ -13,8 +13,8 @@ const initialState: LoginState = {
     acceptedInstructions: false,
 };
 
-export const loginSlice = createSlice({
-    name: "login",
+export const userSlice = createSlice({
+    name: "user",
     initialState,
     reducers: {
         setName: (state, action: PayloadAction<string>) => {
@@ -30,7 +30,7 @@ export const loginSlice = createSlice({
 });
 
 export const { setName, setAcceptedInstructions, resetLogin } =
-    loginSlice.actions;
+    userSlice.actions;
 
 export const selectName = (state: RootState): string | undefined =>
     state.login.name;
@@ -38,4 +38,4 @@ export const selectName = (state: RootState): string | undefined =>
 export const getAcceptedInstructions = (state: RootState): boolean =>
     state.login.acceptedInstructions;
 
-export default loginSlice.reducer;
+export default userSlice.reducer;

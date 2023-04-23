@@ -6,7 +6,7 @@ import {
     getErrors,
     resetGameState,
 } from "../../redux/slices/gameSlice";
-import { selectName, resetLogin } from "../../redux/slices/loginSlice";
+import { selectName, resetLogin } from "../../redux/slices/userSlice";
 import Button from "../Button/Button";
 
 const GameMessage = (): JSX.Element => {
