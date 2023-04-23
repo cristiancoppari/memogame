@@ -3,7 +3,10 @@ import { useEffect } from "react";
 import Card from "../Card/Card";
 import Button from "../Button/Button";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import { getAcceptedInstructions } from "../../redux/slices/userSlice";
+import {
+    getAcceptedInstructions,
+    resetUserData,
+} from "../../redux/slices/userSlice";
 import {
     getPoints,
     getErrors,
@@ -13,6 +16,7 @@ import {
     cardsDoesntMatch,
     cardsMatch,
     setIsBlocked,
+    resetGameState,
 } from "../../redux/slices/gameSlice";
 import "./Board.css";
 
@@ -36,11 +40,13 @@ const Board = (): JSX.Element => {
 
             // check if they match
             if (firstSelection === secondSelection) {
-                // dispatch cardsMatch action
-                dispatch(cardsMatch());
+                timeOutId = setTimeout(() => {
+                    // dispatch cardsMatch action
+                    dispatch(cardsMatch());
 
-                // unblock the game, so the cards will be clickable again
-                dispatch(setIsBlocked(false));
+                    // unblock the game, so the cards will be clickable again
+                    dispatch(setIsBlocked(false));
+                }, 1000);
             } else {
                 // set a timer to flip the cards back
                 timeOutId = setTimeout(() => {
@@ -82,10 +88,11 @@ const Board = (): JSX.Element => {
             </section>
 
             <Button
-                text={"New game"}
+                text={"Restart game"}
                 type={"primary"}
                 onClick={() => {
-                    console.log("clicked");
+                    dispatch(resetGameState());
+                    dispatch(resetUserData());
                 }}
             />
         </main>

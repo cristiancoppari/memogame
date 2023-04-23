@@ -29,10 +29,14 @@ export const userSlice = createSlice({
         resetLogin: (state) => {
             state.acceptedInstructions = false;
         },
+        resetUserData: (state) => {
+            state.name = "";
+            state.acceptedInstructions = false;
+        },
     },
 });
 
-export const { setName, setAcceptedInstructions, resetLogin } =
+export const { setName, setAcceptedInstructions, resetLogin, resetUserData } =
     userSlice.actions;
 
 export const selectName = (state: RootState): string | undefined =>

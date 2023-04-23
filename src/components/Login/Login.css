@@ -1,5 +1,5 @@
 .login {
-    @apply w-full;
+    @apply w-full max-w-sm;
 
     input {
         @apply px-1.5;

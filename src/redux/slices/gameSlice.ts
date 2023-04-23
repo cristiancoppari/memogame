@@ -116,10 +116,10 @@ export const gameSlice = createSlice({
             state.cards = initialState.cards;
             state.points = 0;
             state.errors = 0;
-            state.firstSelection = initialState.firstSelection;
-            state.secondSelection = initialState.secondSelection;
-            state.isCompleted = initialState.isCompleted;
-            state.isBlocked = initialState.isBlocked;
+            state.firstSelection = null;
+            state.secondSelection = null;
+            state.isCompleted = false;
+            state.isBlocked = false;
         },
 
         setIsBlocked: (state, action) => {
