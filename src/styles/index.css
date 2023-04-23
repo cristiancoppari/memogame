@@ -2,31 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-main {
-    @apply pt-8;
-}
+@layer base {
+    * {
+        @apply transition-all duration-200 ease-in-out;
+    }
 
-h1 {
-    @apply text-2xl font-bold text-gray-900;
-}
+    main {
+        @apply pt-8;
+    }
 
-h2 {
-    @apply text-xl font-semibold text-gray-900;
-}
+    h1 {
+        @apply text-2xl font-bold text-gray-900 dark:text-gray-200;
+    }
 
-h6 {
-    @apply font-semibold text-gray-900;
-}
+    h2 {
+        @apply text-xl font-semibold text-gray-900 dark:text-gray-200;
+    }
 
-:where(p, li) {
-    @apply text-slate-700;
-}
+    h4 {
+        @apply font-semibold text-gray-900 dark:text-gray-200;
+    }
 
-li {
-    @apply ml-8 list-outside list-disc;
-}
+    span {
+        @apply text-gray-900 dark:text-gray-200;
+    }
 
-button,
-[type="button"] {
-    @apply bg-inherit;
+    h6 {
+        @apply font-semibold text-gray-900 dark:text-gray-200;
+    }
+
+    p {
+        @apply text-gray-700 dark:text-gray-300;
+    }
+
+    :where(p, li) {
+        @apply text-slate-700 dark:text-gray-200;
+    }
+
+    li {
+        @apply ml-8 list-outside list-disc;
+    }
+
+    button,
+    [type="button"] {
+        @apply bg-inherit;
+    }
 }

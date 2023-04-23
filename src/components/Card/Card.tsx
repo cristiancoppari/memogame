@@ -30,8 +30,6 @@ const Card = ({
     return (
         <button
             className="card"
-            data-match-id={matchId}
-            data-is-matched={isMatched}
             onClick={clicked}
             id={id}
             disabled={isGameBlocked || isSelected || isMatched}
@@ -41,9 +39,7 @@ const Card = ({
                     isSelected || isMatched ? "--active" : ""
                 }`}
             >
-                <div className="card__front">
-                    <img src={"/question-mark.svg"} alt="Card" />
-                </div>
+                <div className="card__front"></div>
 
                 <div className="card__back">
                     <img src={image} alt={name} />

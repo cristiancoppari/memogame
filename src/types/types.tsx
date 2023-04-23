@@ -9,7 +9,7 @@ export type TCard = {
 
 export type TButton = {
     text: string;
-    type: "primary" | "secondary";
+    type: "primary" | "toggle";
     onClick: () => void;
 };
 

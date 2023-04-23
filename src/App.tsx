@@ -2,6 +2,7 @@ import GameInfo from "./components/GameInfo/GameInfo";
 import Container from "./components/Container/Container";
 import Board from "./components/Board/Board";
 import Login from "./components/Login/Login";
+import Header from "./components/Header/Header";
 import { useGetImagesQuery } from "./redux/slices/api";
 import { useAppSelector } from "./hooks/hooks";
 import { getIsCompleted } from "./redux/slices/gameSlice";
@@ -22,6 +23,7 @@ function App(): JSX.Element {
             {/* Images loaded successfully and the game is not completed */}
             {isSuccess && !isCompleted && (
                 <>
+                    <Header />
                     {/* Here I check for the name, if I have a name the user its logged in */}
                     {!name && <Login />}
                     {name && (

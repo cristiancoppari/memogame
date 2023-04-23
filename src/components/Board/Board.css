@@ -1,7 +1,7 @@
 .board {
     @apply w-full md:max-w-xl;
     &__score {
-        @apply mb-6 flex items-center justify-evenly;
+        @apply mb-4 flex items-center justify-evenly;
 
         &--points,
         &--errors {

@@ -7,7 +7,13 @@
 
     &-primary {
         /* Need important here because of tailwindcss selector specificity */
-        @apply bg-indigo-700 hover:bg-indigo-600 !important;
-        @apply focus-visible:outline-indigo-600;
+        @apply bg-gradient-to-r from-purple-500 to-pink-500 hover:opacity-90 dark:bg-gradient-to-r dark:from-sky-500 dark:to-indigo-500 !important;
+        @apply focus-visible:outline-pink-600 dark:focus-visible:outline-indigo-600;
+    }
+
+    &-toggle {
+        @apply rounded-full px-4 text-xs font-normal;
+        @apply bg-gradient-to-r from-yellow-400 to-orange-500 hover:opacity-90 dark:bg-gradient-to-r dark:from-blue-800 dark:to-indigo-800 !important;
+        @apply focus-visible:outline-pink-600 dark:focus-visible:outline-indigo-600;
     }
 }

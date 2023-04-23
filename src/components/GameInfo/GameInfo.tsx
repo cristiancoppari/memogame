@@ -9,10 +9,9 @@ import { initGame } from "../../redux/slices/gameSlice";
 import "./GameInfo.css";
 
 const instructions: string[] = [
-    "Your mission: Find all the cards matching pairs",
-    "How to do it?: Click two cards to flip them. If they match you win a point, if they dont you get an error.",
+    "Your mission is to find all the cards matching pairs",
+    "Click two cards to flip them. If they match you win a point, if they dont you get an error.",
     "Your tools: Your memory and your brain",
-    "Keep score: Keep track of the number of pairs you find. Try to beat your own score by finding more pairs each time you play.",
 ];
 
 const GameInfo = (): JSX.Element => {
@@ -32,8 +31,6 @@ const GameInfo = (): JSX.Element => {
             </h1>
 
             <p className="subtitle">Welcome to the memo game 🔮</p>
-
-            <p>Please read the instructions:</p>
 
             <ul>
                 {instructions.map((instruction, index) => (
