@@ -1,0 +1,24 @@
+.game-message {
+    h2 {
+        @apply mb-4;
+    }
+
+    h4 {
+        @apply mb-4;
+
+        br {
+            @apply block;
+            @media screen(md) {
+                @apply hidden;
+            }
+        }
+    }
+
+    p {
+        @apply mb-6;
+    }
+
+    h6 {
+        @apply mb-4;
+    }
+}

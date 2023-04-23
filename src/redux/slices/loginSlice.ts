@@ -23,10 +23,14 @@ export const loginSlice = createSlice({
         setAcceptedInstructions: (state) => {
             state.acceptedInstructions = true;
         },
+        resetLogin: (state) => {
+            state.acceptedInstructions = false;
+        },
     },
 });
 
-export const { setName, setAcceptedInstructions } = loginSlice.actions;
+export const { setName, setAcceptedInstructions, resetLogin } =
+    loginSlice.actions;
 
 export const selectName = (state: RootState): string | undefined =>
     state.login.name;

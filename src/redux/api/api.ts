@@ -2,10 +2,7 @@ import type { AxiosQueryResult, TCard } from "../../types/types";
 import type { BaseQueryFn } from "@reduxjs/toolkit/dist/query";
 import type { AxiosRequestConfig, AxiosError } from "axios";
 
-import { shuffleCards } from "../../helpers/helpers";
-
 import axios from "axios";
-import { v4 as uuidv4 } from "uuid";
 import { createApi } from "@reduxjs/toolkit/query/react";
 
 import { setCards } from "../slices/gameSlice";
@@ -81,31 +78,18 @@ export const api = createApi({
             ) => {
                 const response = baseQueryReturnValue;
 
-                const cards = response.entries
-                    .map((entry: RImage): TCard => {
-                        return {
-                            id: "",
-                            matchId: entry.fields.image.uuid,
-                            name: entry.fields.image.title,
-                            image: entry.fields.image.url,
-                            isSelected: false,
-                            isMatched: false,
-                        };
-                    })
-                    .slice(0, 6);
-
-                const cardsDuplicated = [...cards, ...cards];
-
-                const cardsShuffled = shuffleCards(cardsDuplicated);
-
-                const cardsToRender = cardsShuffled.map((card) => {
+                const cards = response.entries.map((entry: RImage): TCard => {
                     return {
-                        ...card,
-                        id: uuidv4(),
+                        id: "",
+                        matchId: entry.fields.image.uuid,
+                        name: entry.fields.image.title,
+                        image: entry.fields.image.url,
+                        isSelected: false,
+                        isMatched: false,
                     };
                 });
 
-                return cardsToRender;
+                return cards;
             },
             onQueryStarted: async (arg, { dispatch, queryFulfilled }) => {
                 const { data } = await queryFulfilled;

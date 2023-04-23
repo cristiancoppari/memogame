@@ -5,7 +5,7 @@ import {
     setAcceptedInstructions,
     selectName,
 } from "../../redux/slices/loginSlice";
-
+import { initGame } from "../../redux/slices/gameSlice";
 import "./GameInfo.css";
 
 const instructions: string[] = [
@@ -48,6 +48,7 @@ const GameInfo = (): JSX.Element => {
                 type={"primary"}
                 onClick={() => {
                     dispatch(setAcceptedInstructions());
+                    dispatch(initGame());
                 }}
             />
         </section>

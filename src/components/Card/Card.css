@@ -10,7 +10,7 @@
     }
 
     &__content {
-        @apply relative h-28 w-20 md:h-40 md:w-28;
+        @apply relative h-28 w-16 md:h-40 md:w-28;
         @apply shadow-lg shadow-gray-300;
         @apply transition-all duration-300;
 
