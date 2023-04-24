@@ -21,4 +21,8 @@
     h6 {
         @apply mb-4;
     }
+
+    strong {
+        @apply font-bold;
+    }
 }
