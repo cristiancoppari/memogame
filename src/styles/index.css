@@ -35,6 +35,10 @@
         @apply text-gray-700 dark:text-gray-300;
     }
 
+    label {
+        @apply text-gray-700 dark:text-gray-300;
+    }
+
     :where(p, li) {
         @apply text-slate-700 dark:text-gray-200;
     }
