@@ -60,6 +60,6 @@ Here are some results of [Google PageSpeed Insights](https://pagespeed.web.dev/)
 -   [Axios](https://axios-http.com/) - A library for data fetching.
 -   [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework.
 -   [Prettier](https://prettier.io) - An opinionated code formatter.
--   [Vercel](httls://vercel.com) - Deployment.
+-   [Vercel](https://vercel.com) - Deployment.
 
 ###### Made with ❤️ by Cristian Coppari.
