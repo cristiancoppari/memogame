@@ -1,7 +1,7 @@
 # Memo Game
 
 This project is a simple and fun memory game, also known as a memo game, built using React. The objective of the game is to match pairs of cards with the same image by flipping them over one at a time.
-[Play now!](https://https://memogame-cristiancoppari.vercel.app/)
+[Play now!](https://memogame-cristiancoppari.vercel.app/)
 
 ## Features
 
